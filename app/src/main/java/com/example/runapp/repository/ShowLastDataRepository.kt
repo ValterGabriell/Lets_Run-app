@@ -3,16 +3,18 @@ package com.example.runapp.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.runapp.db.Converter
 import com.example.runapp.model.RunModel
 import com.example.runapp.network.RetrofitInstance
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.ui.RunActivity
-import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,9 +49,18 @@ class ShowLastDataRepository {
             }
 
             override fun onFailure(call: Call<RunModel>, t: Throwable) {
-                Toast.makeText(context, "Falha ao salvar no database", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}",
+                    Toast.LENGTH_LONG
+                ).show()
+                Log.d(
+                    "tag",
+                    "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}"
+                )
             }
         })
     }
+
 
 }

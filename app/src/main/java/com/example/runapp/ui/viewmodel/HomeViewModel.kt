@@ -18,9 +18,5 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel(){
         return homeRepository.read(key, dataStore)
     }
 
-    suspend fun saveImgRunIntoDatabase(img: Bitmap?) {
-        homeRepository.saveImgIntoDatabase(img)
-    }
-
 
 }

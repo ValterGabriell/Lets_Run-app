@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -63,7 +62,7 @@ class FinishRunFragment : Fragment() {
             }
 
         }
-        
+
 
     }
 
@@ -77,7 +76,7 @@ class FinishRunFragment : Fragment() {
             daynight = etDayNight.text.toString(),
             note = etNote.text.toString(),
             local = this.local,
-            emotion = this.emotion,
+            emotion = this.emotion
         )
         findNavController().navigate(action)
 

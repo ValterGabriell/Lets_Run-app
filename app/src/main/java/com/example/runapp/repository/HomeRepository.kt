@@ -36,10 +36,4 @@ class HomeRepository {
         val preferences = dataStore.data.first()
         return preferences[dataStoreKey]
     }
-
-    suspend fun saveImgIntoDatabase(img: Bitmap?) {
-        val converter = Converter()
-        val imgToByteArray = converter.toByteArray(img!!)
-    }
-
 }

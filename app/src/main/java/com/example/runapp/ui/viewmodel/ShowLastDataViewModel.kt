@@ -1,6 +1,7 @@
 package com.example.runapp.ui.viewmodel
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -26,5 +27,6 @@ class ShowLastDataViewModel(private val repository: ShowLastDataRepository) : Vi
     ) {
         repository.saveIntoDatabase(runModel, context, btnFinalizar, progressBar)
     }
+
 
 }

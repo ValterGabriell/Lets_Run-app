@@ -35,9 +35,10 @@ class ShowLastDataFragment : Fragment() {
         changeImgBackground()
         var acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
 
+
         binding.btnFinalizar.setOnClickListener {
-            binding.btnFinalizar.visibility =View.GONE
-            binding.progressBar.visibility =View.VISIBLE
+            binding.btnFinalizar.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             val runModel = RunModel(
                 0,
                 acct?.id!!,
@@ -52,7 +53,13 @@ class ShowLastDataFragment : Fragment() {
                 viewModel.getCurrentDate()
             )
 
-            viewModel.saveIntoDatabase(runModel, requireContext(), binding.btnFinalizar, binding.progressBar)
+
+            viewModel.saveIntoDatabase(
+                runModel,
+                requireContext(),
+                binding.btnFinalizar,
+                binding.progressBar
+            )
 
 
         }
@@ -76,5 +83,6 @@ class ShowLastDataFragment : Fragment() {
         binding.txtEmotion.text = args.emotion.replace("[", "").replace("]", "")
         binding.txtDate.text = viewModel.getCurrentDate()
     }
+
 
 }

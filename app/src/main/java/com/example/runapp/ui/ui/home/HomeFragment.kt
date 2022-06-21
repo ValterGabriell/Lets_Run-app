@@ -249,15 +249,11 @@ class HomeFragment : Fragment() {
                 kmh = kmh.toFloat()
             )
             findNavController().navigate(action)
-            CoroutineScope(Dispatchers.IO).launch {
-                viewModel.saveImgRunIntoDatabase(it)
-            }
 
         }
 
 
     }
-
 
     private fun toogleRun() {
         if (isTracking) {
