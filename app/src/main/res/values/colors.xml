@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="RichBlackFOGRA39">#0b090a</color>
+    <color name="EerieBlack"> #161a1d</color>
+    <color name="BloodRed">#660708</color>
+    <color name="RubyRed">#a4161a</color>
+    <color name="Carnelian"> #ba181b</color>
+    <color name="ImperialRed"> #e5383b</color>
+    <color name="BlackShadows" >#b1a7a6</color>
+    <color name="LightGray" >#d3d3d3</color>
+    <color name="Cultured"> #f5f3f4</color>
+    <color name="White">#ffffff</color>
+</resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ui.home.HomeFragment" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTimeInSeconds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="00:00:00"
+            android:textColor="@color/EerieBlack"
+            android:textSize="34sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarHome">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center_horizontal"
+            android:text="Duração"
+            android:textColor="@color/EerieBlack" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/txtSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/montserrat_alternates_semibold"
+                android:text="0 km/h"
+                android:textColor="@color/EerieBlack" />
+
+            <TextView
+                android:id="@+id/txtDistanceMsSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/montserrat_alternates_semibold"
+                android:text=" 0 km"
+                android:textColor="@color/EerieBlack" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEclude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/White"
+            android:text="Cancelar corrida"
+            android:textColor="@color/BloodRed"
+            app:icon="@drawable/ic_baseline_restore_from_trash_24"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/BloodRed" />
+
+
+    </LinearLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_song"
+            android:textAlignment="inherit"
+            app:backgroundTint="@color/White"
+            app:icon="@drawable/ic_music"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btnStartRun"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="INICIAR"
+            android:textColor="@color/Cultured"
+            app:backgroundTint="@color/BloodRed"
+            app:cornerRadius="45dp" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_song"
+            android:isScrollContainer="false"
+            android:textAlignment="inherit"
+            app:backgroundTint="@color/White"
+            app:icon="@drawable/ic_baseline_settings_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/background_btn_song"
+            android:textAlignment="inherit"
+            android:textColor="@color/RichBlackFOGRA39"
+            app:backgroundTint="@color/White"
+            app:icon="@drawable/ic_baseline_pause_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/background_btn_song"
+            android:textAlignment="inherit"
+            android:textColor="@color/RichBlackFOGRA39"
+            android:visibility="gone"
+            app:backgroundTint="@color/White"
+            app:icon="@drawable/ic_baseline_not_started_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+      <com.example.swipebutton_library.SwipeButton
+          android:id="@+id/btn_finish"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:button_background_drawable="@drawable/btn_start_background"
+          app:button_background_padding="12dp"
+          app:button_background_src="@drawable/ic_baseline_stop_24"
+          app:button_background_tint="@color/black"
+          app:button_height="40dp"
+          app:button_width="40dp"
+          app:has_active_status="false"
+          app:has_finish_animation="true"
+          app:inner_text="Arraste para finalizar"
+          app:inner_text_color="@color/black"
+          app:inner_text_gravity="end"
+          app:inner_text_padding="8dp"
+          app:inner_text_size="12sp"
+          app:outer_background_height="40dp"
+          app:outer_background_tint="@color/white"
+          app:trail_background_tint="@color/black"
+          app:trail_enabled="true"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

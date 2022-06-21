@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/abril_fatface</item>
+        <item>@font/alata</item>
+        <item>@font/alfa_slab_one</item>
+        <item>@font/allerta</item>
+        <item>@font/montaga</item>
+        <item>@font/montserrat_alternates_semibold</item>
+    </array>
+</resources>

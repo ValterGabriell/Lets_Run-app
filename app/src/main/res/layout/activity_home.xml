@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".ui.HomeActivity">
+
+    <TextView
+        android:id="@+id/textMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:gravity="center"
+        android:text="RUNNING APP"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/Cultured"
+        android:textSize="34sp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:text="COMEÇAR"
+        android:textColor="@color/EerieBlack"
+        app:backgroundTint="@color/LightGray"
+        app:cornerRadius="45dp" />
+</LinearLayout>
