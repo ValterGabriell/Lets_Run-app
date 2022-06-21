@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.runapp.R
 import com.example.runapp.databinding.FragmentHomeBinding
+import com.example.runapp.db.DataModel
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.other.Constantes
 import com.example.runapp.service.Polyline
@@ -239,6 +240,13 @@ class HomeFragment : Fragment() {
     private fun changeThisFragmentToFinishRunFragment() {
 
         map?.snapshot {
+            CoroutineScope(Dispatchers.IO).launch {
+                val dataModel = DataModel(
+                    0, it
+                )
+                viewModel.saveImgIntoDatabase(dataModel)
+            }
+
             val timeInSecond =
                 AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
             val distanceTotal = distanceKm

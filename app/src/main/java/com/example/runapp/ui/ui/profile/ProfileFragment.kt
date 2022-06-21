@@ -49,7 +49,7 @@ class ProfileFragment : Fragment() {
             binding.layout2
         )
         binding.txtSeeAllRun.setOnClickListener {
-            startActivity(Intent(requireContext(), ListRunActivity::class.java))
+            startActivity(Intent(requireActivity(), ListRunActivity::class.java))
         }
 
     }

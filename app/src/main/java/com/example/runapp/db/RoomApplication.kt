@@ -5,7 +5,7 @@ import android.content.Context
 class RoomApplication(context: Context) : RoomDataSource {
     private val fetchDao = DatabaseInstanceService.getInstance(context).getDao()
 
-    override fun addName(dataModel: DataModel) {
+    override fun insertRun(dataModel: DataModel) {
         fetchDao.insertRun(DataEntity.fromModlToEntity(dataModel))
     }
 

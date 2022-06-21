@@ -1,5 +1,6 @@
 package com.example.runapp.db
 
+import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,7 +11,7 @@ class DataEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     @ColumnInfo(name = "img")
-    val img: ByteArray
+    val img: Bitmap?
 ) {
 
     companion object {

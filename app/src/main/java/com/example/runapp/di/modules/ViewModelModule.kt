@@ -8,6 +8,7 @@ import com.example.runapp.ui.viewmodel.FinishRunViewModel
 import com.example.runapp.ui.viewmodel.HomeViewModel
 import com.example.runapp.ui.viewmodel.ProfileViewModel
 import com.example.runapp.ui.viewmodel.ShowLastDataViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -20,6 +21,6 @@ val viewModelModule = module {
 
         viewModel { FinishRunViewModel(get()) }
         viewModel { ShowLastDataViewModel(get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), androidApplication() ) }
         viewModel { ProfileViewModel(get()) }
 }
