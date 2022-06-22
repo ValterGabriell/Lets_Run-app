@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
-import com.example.runapp.model.RunModel
+import com.example.runapp.model.RunModelFinal
 import com.example.runapp.network.RetrofitInstance
 import com.example.runapp.other.AppUtilities
 import com.google.android.material.textview.MaterialTextView
@@ -26,9 +26,9 @@ class ProfileRepository {
         layout2: LinearLayout,
         userId: String
     ) {
-        RetrofitInstance.getRetrofit().getLastRun(userId).enqueue(object : Callback<RunModel> {
+        RetrofitInstance.getRetrofit().getLastRun(userId).enqueue(object : Callback<RunModelFinal> {
             @SuppressLint("SetTextI18n")
-            override fun onResponse(call: Call<RunModel>, response: Response<RunModel>) {
+            override fun onResponse(call: Call<RunModelFinal>, response: Response<RunModelFinal>) {
                 response.body().let {
                     if (it?.equals(null) == false) {
                         progressBarProfile.visibility = View.GONE
@@ -41,7 +41,7 @@ class ProfileRepository {
                 }
             }
 
-            override fun onFailure(call: Call<RunModel>, t: Throwable) {
+            override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
                 Toast.makeText(context, "Não foi possível recuperar a última corrida, tente novamente em alguns instantes", Toast.LENGTH_LONG).show()
                 progressBarProfile.visibility = View.GONE
                 layout.visibility = View.VISIBLE

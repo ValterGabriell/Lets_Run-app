@@ -1,6 +1,6 @@
 package com.example.runapp.model
 
-data class RunModel(
+data class RunModelFinal(
     val runId: Int? = 0,
     val userId: String = "",
     val username: String = "",
@@ -12,5 +12,5 @@ data class RunModel(
     val isDay: String = "",
     val isCity: String = "",
     val dateRun: String = "",
-    val imgRun:String = ""
+    val imgRun: String = ""
 )

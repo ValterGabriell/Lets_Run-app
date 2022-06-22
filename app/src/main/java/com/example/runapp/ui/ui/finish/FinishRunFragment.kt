@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.runapp.databinding.FragmentFinishRunBinding
-import com.example.runapp.model.RunModel
+import com.example.runapp.model.RunModelFinal
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.ui.viewmodel.FinishRunViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -32,13 +32,12 @@ class FinishRunFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFinishRunBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
         changeBackgroundImg()
         setTexts()
 
@@ -64,7 +63,7 @@ class FinishRunFragment : Fragment() {
             emotion = AppUtilities.filterChip(group)
         }
 
-        val acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
+
         binding.floatingActionButton.setOnClickListener {
             if (!binding.etNote.text.isNullOrEmpty()) {
                 saveIntoDatabase(acct)
@@ -75,10 +74,6 @@ class FinishRunFragment : Fragment() {
     }
 
     private fun changeBackgroundImg() {
-        CoroutineScope(Dispatchers.Main).launch {
-            val bmp = viewModel.convertStringToBitmap(args.img)
-            binding.imgRun.setImageBitmap(bmp)
-        }
 
     }
 
@@ -86,7 +81,7 @@ class FinishRunFragment : Fragment() {
     private fun saveIntoDatabase(acct: GoogleSignInAccount?) {
         binding.floatingActionButton.visibility = View.GONE
         binding.progressBarSave.visibility = View.VISIBLE
-        val runModel = RunModel(
+        val runModel = RunModelFinal(
             0,
             acct?.id!!,
             acct.displayName!!,
@@ -95,10 +90,10 @@ class FinishRunFragment : Fragment() {
             args.kmh.toDouble(),
             args.distanceTotal.toDouble(),
             binding.etNote.text.toString(),
-            binding.editTextDayNight2.text.toString(),
+            binding.etNote.text.toString(),
             local,
-            binding.txtDate.text.toString(),
-            args.img
+            viewModel.getCurrentDate(),
+            "ESSA"
         )
 
         viewModel.saveIntoDatabase(

@@ -27,7 +27,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.PolylineOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -91,10 +90,15 @@ class HomeFragment : Fragment() {
 
 
         binding.btnFinish.setOnActiveListener {
-            zoomToSeeWholeTrack()
             CoroutineScope(Dispatchers.Main).launch {
-                sendCommandToService(Constantes.ACTION_STOP_SERVICE)
+                zoomToSeeWholeTrack()
                 changeThisFragmentToFinishRunFragment()
+                CoroutineScope(Dispatchers.Main).launch {
+                    delay(1000)
+                    sendCommandToService(Constantes.ACTION_STOP_SERVICE)
+                }
+
+
             }
         }
 
@@ -249,7 +253,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun changeThisFragmentToFinishRunFragment() {
-
         map?.snapshot {
             val timeInSecond =
                 AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
@@ -258,8 +261,7 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment(
                 timerInsSeconds = timeInSecond,
                 distanceTotal = distanceTotal.toFloat(),
-                kmh = kmh.toFloat(),
-                img = viewModel.encodeBitmapToString(it!!)!!
+                kmh = kmh.toFloat()
             )
             findNavController().navigate(action)
 

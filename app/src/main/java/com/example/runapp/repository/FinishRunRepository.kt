@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
-import com.example.runapp.model.RunModel
+import com.example.runapp.model.RunModelFinal
 import com.example.runapp.network.RetrofitInstance
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.ui.RunActivity
@@ -45,13 +45,13 @@ class FinishRunRepository {
     }
 
     fun saveIntoDatabase(
-        runModel: RunModel,
+        runModel: RunModelFinal,
         context: Context,
         btnFinalizar: FloatingActionButton,
         progressBar: ProgressBar
     ) {
-        RetrofitInstance.getRetrofit().addNewRun(runModel).enqueue(object : Callback<RunModel> {
-            override fun onResponse(call: Call<RunModel>, response: Response<RunModel>) {
+        RetrofitInstance.getRetrofit().addNewRun(runModel).enqueue(object : Callback<RunModelFinal> {
+            override fun onResponse(call: Call<RunModelFinal>, response: Response<RunModelFinal>) {
                 context.startActivity(Intent(context, RunActivity::class.java))
                 btnFinalizar.visibility = View.VISIBLE
                 progressBar.visibility = View.GONE
@@ -59,7 +59,7 @@ class FinishRunRepository {
                 Log.d("TAG", runModel.toString())
             }
 
-            override fun onFailure(call: Call<RunModel>, t: Throwable) {
+            override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
                 Toast.makeText(
                     context,
                     "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}",

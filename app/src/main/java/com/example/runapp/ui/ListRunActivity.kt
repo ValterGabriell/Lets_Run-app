@@ -1,6 +1,7 @@
 package com.example.runapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.runapp.databinding.ActivityListRunBinding
 import com.example.runapp.ui.viewmodel.ListRunViewModel
@@ -24,8 +25,12 @@ class ListRunActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             viewModel.getAllRuns(acct?.id!!)
-            viewModel.listRuns.observe(this@ListRunActivity) {
+            CoroutineScope(Dispatchers.Main).launch {
+                viewModel.listRuns.observe(this@ListRunActivity) {
+                    Log.d("TAG: ", it.toString())
+                }
             }
+
         }
 
     }
