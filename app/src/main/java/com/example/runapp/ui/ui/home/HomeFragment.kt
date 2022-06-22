@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.runapp.R
 import com.example.runapp.databinding.FragmentHomeBinding
-import com.example.runapp.db.DataModel
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.other.Constantes
 import com.example.runapp.service.Polyline
@@ -28,6 +27,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.PolylineOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -91,8 +91,11 @@ class HomeFragment : Fragment() {
 
 
         binding.btnFinish.setOnActiveListener {
-            sendCommandToService(Constantes.ACTION_STOP_SERVICE)
-            changeThisFragmentToFinishRunFragment()
+            zoomToSeeWholeTrack()
+            CoroutineScope(Dispatchers.Main).launch {
+                sendCommandToService(Constantes.ACTION_STOP_SERVICE)
+                changeThisFragmentToFinishRunFragment()
+            }
         }
 
         binding.btnPause.setOnClickListener {
@@ -139,6 +142,14 @@ class HomeFragment : Fragment() {
 
 
         }
+    }
+
+    private fun zoomToSeeWholeTrack() {
+        map?.moveCamera(
+            CameraUpdateFactory.zoomOut()
+        )
+
+
     }
 
     private fun changeStyleMap(
@@ -240,13 +251,6 @@ class HomeFragment : Fragment() {
     private fun changeThisFragmentToFinishRunFragment() {
 
         map?.snapshot {
-            CoroutineScope(Dispatchers.IO).launch {
-                val dataModel = DataModel(
-                    0, it
-                )
-                viewModel.saveImgIntoDatabase(dataModel)
-            }
-
             val timeInSecond =
                 AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
             val distanceTotal = distanceKm
@@ -254,7 +258,8 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment(
                 timerInsSeconds = timeInSecond,
                 distanceTotal = distanceTotal.toFloat(),
-                kmh = kmh.toFloat()
+                kmh = kmh.toFloat(),
+                img = viewModel.encodeBitmapToString(it!!)!!
             )
             findNavController().navigate(action)
 

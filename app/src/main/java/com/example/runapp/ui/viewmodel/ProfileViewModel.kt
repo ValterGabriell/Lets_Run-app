@@ -16,9 +16,19 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
         txtTimeFinal: MaterialTextView,
         progressBarProfile: ProgressBar,
         layout: LinearLayout,
-        layout2: LinearLayout
-    ){
-        profileRepository.getLastRun(context, txtDist, txtKmh, txtTimeFinal, progressBarProfile, layout, layout2)
+        layout2: LinearLayout,
+        userId: String
+    ) {
+        profileRepository.getLastRun(
+            context,
+            txtDist,
+            txtKmh,
+            txtTimeFinal,
+            progressBarProfile,
+            layout,
+            layout2,
+            userId
+        )
     }
 
 }

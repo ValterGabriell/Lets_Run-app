@@ -42,45 +42,8 @@
             android:name="kmh"
             app:argType="float"
             android:defaultValue="0" />
-        <action
-            android:id="@+id/action_finishRunFragment_to_showLastDataFragment"
-            app:destination="@id/showLastDataFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/showLastDataFragment"
-        android:name="com.example.runapp.ui.ui.showlast.ShowLastDataFragment"
-        android:label="fragment_show_last_data"
-        tools:layout="@layout/fragment_show_last_data" >
         <argument
-            android:name="mediaRun"
-            app:argType="float"
-            android:defaultValue="0" />
-        <argument
-            android:name="timeRun"
-            app:argType="string"
-            android:defaultValue="00:00:00" />
-        <argument
-            android:name="distanciaTotal"
-            app:argType="float"
-            android:defaultValue="0" />
-        <argument
-            android:name="daynight"
-            app:argType="string"
-            android:defaultValue="Dia" />
-        <argument
-            android:name="note"
-            app:argType="string"
-            android:defaultValue="Null" />
-        <argument
-            android:name="emotion"
-            app:argType="string"
-            android:defaultValue="satisfeito" />
-        <argument
-            android:name="local"
-            app:argType="string"
-            android:defaultValue="cidade" />
-        <action
-            android:id="@+id/action_showLastDataFragment_to_id_profile"
-            app:destination="@id/id_profile" />
+            android:name="img"
+            app:argType="string" />
     </fragment>
 </navigation>

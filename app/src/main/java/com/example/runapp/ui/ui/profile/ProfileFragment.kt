@@ -46,7 +46,8 @@ class ProfileFragment : Fragment() {
             binding.txtKmh,
             binding.progressBarProfile,
             binding.layout,
-            binding.layout2
+            binding.layout2,
+            acct?.id!!
         )
         binding.txtSeeAllRun.setOnClickListener {
             startActivity(Intent(requireActivity(), ListRunActivity::class.java))
@@ -60,7 +61,8 @@ class ProfileFragment : Fragment() {
         txtKmh: MaterialTextView,
         progressBarProfile: ProgressBar,
         layout: LinearLayout,
-        layout2: LinearLayout
+        layout2: LinearLayout,
+        userId: String
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             CoroutineScope(Dispatchers.Main).launch {
@@ -71,7 +73,8 @@ class ProfileFragment : Fragment() {
                     txtTimeFinal,
                     progressBarProfile,
                     layout,
-                    layout2
+                    layout2,
+                    userId
                 )
             }
 

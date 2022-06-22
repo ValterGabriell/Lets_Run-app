@@ -9,17 +9,17 @@ interface RetrofitService {
     @POST("postRun")
     fun addNewRun(@Body runModel: RunModel): Call<RunModel>
 
-    @GET("getAll")
-    fun getAllRun(): Call<List<RunModel>>
+    @GET("getAll/{userId}")
+    fun getAllRun(@Path("userId") userId: String): Call<List<RunModel>>
 
-    @GET("orderByDate")
-    fun orderByDate(): Call<List<RunModel>>
+    @GET("orderByDate/{userId}")
+    fun orderByDate(@Path("userId") userId: String): Call<List<RunModel>>
 
-    @GET("orderByKm")
-    fun orderByKm(): Call<List<RunModel>>
+    @GET("orderByKm/{userId}")
+    fun orderByKm(@Path("userId") userId: String): Call<List<RunModel>>
 
-    @GET("getLastRun")
-    fun getLastRun(): Call<RunModel>
+    @GET("getLastRun/{userId}")
+    fun getLastRun(@Path("userId") userId: String): Call<RunModel>
 
     @DELETE("delete/all")
     fun deleteAll()

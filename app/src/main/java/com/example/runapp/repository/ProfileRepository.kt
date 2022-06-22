@@ -23,9 +23,10 @@ class ProfileRepository {
         txtTimeFinal: MaterialTextView,
         progressBarProfile: ProgressBar,
         layout: LinearLayout,
-        layout2: LinearLayout
+        layout2: LinearLayout,
+        userId: String
     ) {
-        RetrofitInstance.getRetrofit().getLastRun().enqueue(object : Callback<RunModel> {
+        RetrofitInstance.getRetrofit().getLastRun(userId).enqueue(object : Callback<RunModel> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<RunModel>, response: Response<RunModel>) {
                 response.body().let {

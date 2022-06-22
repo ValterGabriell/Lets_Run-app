@@ -78,15 +78,9 @@ object AppUtilities {
             .filter { (it as Chip).isChecked }
             .map { (it as Chip).text.toString() }.toList()
 
-        return name.toString()
+        return name.toString().replace("[", "").replace("]", "")
     }
 
-
-    fun converterBitmapToByteArray(bmp: Bitmap?): ByteArray {
-        val stream = ByteArrayOutputStream()
-        bmp?.compress(Bitmap.CompressFormat.PNG, 100, stream)
-        return stream.toByteArray()
-    }
 
     fun changeBackground(string: String, img: ImageView) {
         when (string) {
