@@ -13,6 +13,22 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/g"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/h"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:background="#DDDD"
+                android:scaleType="centerCrop" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/a"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,14 +41,6 @@
                 android:layout_height="145dp"
                 android:background="#DDDD"
                 android:scaleType="centerCrop" />
-
-            <Button
-                android:id="@+id/C"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/b"
-                android:background="#DDDD"
-                tools:ignore="SpeakableTextPresentCheck" />
 
         </RelativeLayout>
 
@@ -50,37 +58,21 @@
                 android:background="#DDDD"
                 android:scaleType="centerCrop" />
 
-            <Button
-                android:id="@+id/f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/e"
-                android:background="#DDDD"
-                tools:ignore="SpeakableTextPresentCheck" />
-
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/g"
+            android:id="@+id/j"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
             android:visibility="visible">
 
             <ImageView
-                android:id="@+id/h"
+                android:id="@+id/k"
                 android:layout_width="match_parent"
                 android:layout_height="145dp"
                 android:background="#DDDD"
                 android:scaleType="centerCrop" />
-
-            <Button
-                android:id="@+id/i"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/h"
-                android:background="#DDDD"
-                tools:ignore="SpeakableTextPresentCheck" />
 
         </RelativeLayout>
 

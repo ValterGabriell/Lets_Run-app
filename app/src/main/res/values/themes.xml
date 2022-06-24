@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.RunApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/BlackShadows</item>
+        <item name="colorPrimary">@color/BloodRed</item>
         <item name="colorPrimaryVariant">@color/BloodRed</item>
         <item name="colorOnPrimary">@color/Carnelian</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/LightGray</item>
-        <item name="colorSecondaryVariant">@color/BlackShadows</item>
+        <item name="colorSecondaryVariant">@color/BloodRed</item>
         <item name="colorOnSecondary">@color/ImperialRed</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
