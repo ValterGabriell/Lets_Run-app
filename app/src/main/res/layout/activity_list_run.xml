@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.RunAppSettings"
     android:orientation="vertical"
     tools:context=".ui.ListRunActivity">
+
+<com.facebook.shimmer.ShimmerFrameLayout
+    android:id="@+id/shimmer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_list_run_shimmer"/>
+
+
+</com.facebook.shimmer.ShimmerFrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="64dp"
+            app:srcCompat="@drawable/ic_baseline_sentiment_very_dissatisfied_24" />
+
+        <TextView
+            android:id="@+id/txtEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgEmpty"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center_horizontal"
+            android:text="Você ainda não tem nenhuma corrida salva"
+            android:textColor="@color/RichBlackFOGRA39"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeErro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            app:srcCompat="@drawable/ic_sharp_add_alert_24" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center_horizontal"
+            android:text="Ops! Algo deu errado!"
+            android:textColor="@color/RichBlackFOGRA39"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center_horizontal"
+            android:text="Verifique sua conexão com a internet ou tente voltar e abrir novamente esta tela" />
+
+        <Button
+            android:id="@+id/btnBackErro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView6"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="32dp"
+            android:backgroundTint="@color/BloodRed"
+            android:text="Voltar"
+            android:textColor="@color/Cultured" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         tools:listitem="@layout/layout_list_run" />
 </LinearLayout>

@@ -38,7 +38,7 @@ class FinishRunFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
-        changeBackgroundImg()
+
         setTexts()
 
 
@@ -52,15 +52,12 @@ class FinishRunFragment : Fragment() {
 
 
         binding.chipPlace.setOnCheckedStateChangeListener { group, _ ->
-            local = AppUtilities.filterChip(
-                group
+            local = AppUtilities.changeBack(
+                group, binding.imgRun
             )
-
-
         }
         binding.chipEmotions.setOnCheckedStateChangeListener { group, _ ->
-            AppUtilities.filterChip(group)
-            emotion = AppUtilities.filterChip(group)
+            emotion = AppUtilities.changeBack(group, binding.imgRun)
         }
 
 
@@ -73,36 +70,30 @@ class FinishRunFragment : Fragment() {
 
     }
 
-    private fun changeBackgroundImg() {
-
-    }
-
 
     private fun saveIntoDatabase(acct: GoogleSignInAccount?) {
         binding.floatingActionButton.visibility = View.GONE
         binding.progressBarSave.visibility = View.VISIBLE
+
         val runModel = RunModelFinal(
             0,
             acct?.id!!,
             acct.displayName!!,
             args.timerInsSeconds,
-            emotion,
+            AppUtilities.filterChipToSave(binding.chipEmotions),
             args.kmh.toDouble(),
             args.distanceTotal.toDouble(),
             binding.etNote.text.toString(),
-            binding.etNote.text.toString(),
-            local,
-            viewModel.getCurrentDate(),
-            "ESSA"
+            binding.editTextDayNight2.text.toString(),
+            AppUtilities.filterChipToSave(binding.chipPlace),
+            binding.txtDate.text.toString()
         )
-
         viewModel.saveIntoDatabase(
             runModel,
             requireContext(),
             binding.floatingActionButton,
             binding.progressBarSave
         )
-
 
     }
 

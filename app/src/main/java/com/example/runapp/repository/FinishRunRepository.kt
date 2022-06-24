@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import com.example.runapp.model.RunModelFinal
 import com.example.runapp.network.RetrofitInstance
 import com.example.runapp.other.AppUtilities
@@ -50,32 +51,32 @@ class FinishRunRepository {
         btnFinalizar: FloatingActionButton,
         progressBar: ProgressBar
     ) {
-        RetrofitInstance.getRetrofit().addNewRun(runModel).enqueue(object : Callback<RunModelFinal> {
-            override fun onResponse(call: Call<RunModelFinal>, response: Response<RunModelFinal>) {
-                context.startActivity(Intent(context, RunActivity::class.java))
-                btnFinalizar.visibility = View.VISIBLE
-                progressBar.visibility = View.GONE
-                Toast.makeText(context, "Corrida salva no banco de dados", Toast.LENGTH_LONG).show()
-                Log.d("TAG", runModel.toString())
-            }
+        RetrofitInstance.getRetrofit().addNewRun(runModel)
+            .enqueue(object : Callback<RunModelFinal> {
+                override fun onResponse(
+                    call: Call<RunModelFinal>,
+                    response: Response<RunModelFinal>
+                ) {
+                    context.startActivity(Intent(context, RunActivity::class.java))
+                    btnFinalizar.visibility = View.VISIBLE
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(context, "Corrida salva no banco de dados", Toast.LENGTH_LONG)
+                        .show()
+                    Log.d("TAG", runModel.toString())
+                }
 
-            override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
-                Toast.makeText(
-                    context,
-                    "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}",
-                    Toast.LENGTH_LONG
-                ).show()
-                Log.d(
-                    "tag",
-                    "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}"
-                )
-            }
-        })
-    }
-
-    suspend fun convertStringToBitmap(str: String): Bitmap? {
-        val byteArray = Base64.getDecoder().decode(str)
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+                override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
+                    Toast.makeText(
+                        context,
+                        "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Log.d(
+                        "tag",
+                        "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}"
+                    )
+                }
+            })
     }
 
 }

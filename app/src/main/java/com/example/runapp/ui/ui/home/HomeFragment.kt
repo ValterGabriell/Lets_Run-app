@@ -63,6 +63,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mapView.onCreate(savedInstanceState)
+
+
         dataStore = requireContext().createDataStore(name = "settings")
         fusedLocationProviderClient = FusedLocationProviderClient(requireContext())
         binding.mapView.getMapAsync {
@@ -253,21 +255,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun changeThisFragmentToFinishRunFragment() {
-        map?.snapshot {
-            val timeInSecond =
-                AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
-            val distanceTotal = distanceKm
-            val kmh = speedOfRun
-            val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment(
-                timerInsSeconds = timeInSecond,
-                distanceTotal = distanceTotal.toFloat(),
-                kmh = kmh.toFloat()
-            )
-            findNavController().navigate(action)
-
-        }
+        val timeInSecond =
+            AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
+        val distanceTotal = distanceKm
+        val kmh = speedOfRun
 
 
+        val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment(
+            timerInsSeconds = timeInSecond,
+            distanceTotal = distanceTotal.toFloat(),
+            kmh = kmh.toFloat()
+        )
+        findNavController().navigate(action)
     }
 
     private fun toogleRun() {

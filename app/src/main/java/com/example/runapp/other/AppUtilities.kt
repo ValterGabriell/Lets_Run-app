@@ -3,7 +3,6 @@ package com.example.runapp.other
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
 import android.location.Location
 import android.os.Build
 import android.os.CountDownTimer
@@ -16,7 +15,6 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.squareup.picasso.Picasso
 import pub.devrel.easypermissions.EasyPermissions
-import java.io.ByteArrayOutputStream
 import java.util.concurrent.TimeUnit
 
 
@@ -73,21 +71,29 @@ object AppUtilities {
         return distance
     }
 
-    fun filterChip(chipGroup: ChipGroup): String {
+    fun changeBack(chipGroup: ChipGroup, img: ImageView): String {
         val name = chipGroup.children
             .filter { (it as Chip).isChecked }
             .map { (it as Chip).text.toString() }.toList()
+        val nameFormated = name.toString().replace("[", "").replace("]", "")
+        changeBackground(nameFormated, img)
+        return nameFormated
+    }
 
+    fun filterChipToSave(chipGroup: ChipGroup): String {
+        val name = chipGroup.children
+            .filter { (it as Chip).isChecked }
+            .map { (it as Chip).text.toString() }.toList()
         return name.toString().replace("[", "").replace("]", "")
     }
 
 
     fun changeBackground(string: String, img: ImageView) {
         when (string) {
-            "[Cidade]" -> {
+            "Cidade" -> {
                 Picasso.get().load(R.drawable.img_cidade).into(img)
             }
-            "[Campo]" -> {
+            "Campo" -> {
                 Picasso.get().load(R.drawable.img_campo).into(img)
             }
         }
@@ -116,7 +122,6 @@ object AppUtilities {
                 "${if (seconds < 10) "0" else ""}$seconds:" +
                 "${if (milliseconds < 10) "0" else ""}$milliseconds"
     }
-
 
 
 }

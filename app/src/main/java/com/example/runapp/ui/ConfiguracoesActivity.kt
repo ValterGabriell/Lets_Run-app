@@ -30,10 +30,7 @@ class ConfiguracoesActivity : AppCompatActivity() {
         dataStore = createDataStore(name = "settings")
         changeMap()
         setMapOnSettings()
-
-        binding.toolbarSettings.findViewById<TextView>(R.id.btnTool).setOnClickListener {
-            startActivity(Intent(this, RunActivity::class.java))
-        }
+        configToolbar()
 
     }
 
@@ -89,5 +86,12 @@ class ConfiguracoesActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         startActivity(Intent(this, RunActivity::class.java))
+    }
+
+    private fun configToolbar(){
+        supportActionBar?.apply {
+            title = "Configuração de mapa"
+            setDisplayHomeAsUpEnabled(true)
+        }
     }
 }

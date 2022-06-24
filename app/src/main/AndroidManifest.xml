@@ -22,11 +22,13 @@
         <activity
             android:name=".ui.ListRunActivity"
             android:theme="@style/Theme.RunAppSettings"
+            android:parentActivityName=".ui.RunActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ConfiguracoesActivity"
+            android:theme="@style/Theme.RunAppSettings"
             android:exported="false"
-            android:parentActivityName=".ui.HomeActivity" />
+            android:parentActivityName=".ui.RunActivity" />
         <activity
             android:name=".ui.RunActivity"
             android:exported="false"

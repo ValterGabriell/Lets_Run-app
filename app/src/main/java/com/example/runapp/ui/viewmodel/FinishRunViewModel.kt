@@ -3,7 +3,9 @@ package com.example.runapp.ui.viewmodel
 import android.content.Context
 import android.graphics.Bitmap
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.runapp.model.RunModelFinal
 import com.example.runapp.repository.FinishRunRepository
@@ -15,7 +17,7 @@ class FinishRunViewModel(private val finishRunRepository: FinishRunRepository) :
         finishRunRepository.checkIfIsDayOrNight(editText)
     }
 
-     fun getCurrentDate(): String {
+    fun getCurrentDate(): String {
         return finishRunRepository.getDate()
     }
 
@@ -28,10 +30,9 @@ class FinishRunViewModel(private val finishRunRepository: FinishRunRepository) :
         finishRunRepository.saveIntoDatabase(runModel, context, btnFinalizar, progressBar)
     }
 
-    suspend fun convertStringToBitmap(str:String):Bitmap?{
-        return finishRunRepository.convertStringToBitmap(str)
+    fun setBackgroundImg(string: String, img:ImageView){
+        finishRunRepository.setBackgroundImg(string, img)
     }
-
 
 
 

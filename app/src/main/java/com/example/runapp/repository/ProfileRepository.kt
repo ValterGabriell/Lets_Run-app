@@ -20,6 +20,7 @@ class ProfileRepository {
         context: Context,
         txtDist: MaterialTextView,
         txtKmh: MaterialTextView,
+        txtCal:MaterialTextView,
         txtTimeFinal: MaterialTextView,
         progressBarProfile: ProgressBar,
         layout: LinearLayout,
@@ -30,25 +31,38 @@ class ProfileRepository {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<RunModelFinal>, response: Response<RunModelFinal>) {
                 response.body().let {
-                    if (it?.equals(null) == false) {
+                    if (it?.userId?.isNotEmpty() == true && it?.userId?.isNotBlank() == true) {
                         progressBarProfile.visibility = View.GONE
                         layout.visibility = View.VISIBLE
                         layout2.visibility = View.VISIBLE
                         txtDist.text = "${AppUtilities.formatTo2DecimalHomes(it.totalDistance)} km"
                         txtKmh.text = "${AppUtilities.formatTo2DecimalHomes(it.avergedSpeed)} kmh"
                         txtTimeFinal.text = it.timRunInSeconds
+                    } else {
+                        progressBarProfile.visibility = View.GONE
+                        layout.visibility = View.VISIBLE
+                        layout2.visibility = View.VISIBLE
+                        txtDist.visibility = View.GONE
+                        txtKmh.visibility = View.GONE
+                        txtCal.visibility = View.GONE
+                        txtTimeFinal.text = "Você ainda não possui corridas salvas"
                     }
                 }
             }
 
             override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
-                Toast.makeText(context, "Não foi possível recuperar a última corrida, tente novamente em alguns instantes", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    "Não foi possível recuperar a última corrida, tente novamente em alguns instantes",
+                    Toast.LENGTH_SHORT
+                ).show()
                 progressBarProfile.visibility = View.GONE
                 layout.visibility = View.VISIBLE
                 layout2.visibility = View.VISIBLE
-                txtDist.text = "0 km"
-                txtKmh.text = "0 kmh"
-                txtTimeFinal.text = "00:00:00"
+                txtDist.visibility = View.GONE
+                txtKmh.visibility = View.GONE
+                txtCal.visibility = View.GONE
+                txtTimeFinal.text = "Falha ao recuperar corrida, tente novamente"
             }
         })
     }

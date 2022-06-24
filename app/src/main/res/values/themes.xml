@@ -16,13 +16,13 @@
 
     <style name="Theme.RunAppSettings" parent="Theme.MaterialComponents.Light.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/BlackShadows</item>
-        <item name="colorPrimaryVariant">@color/BloodRed</item>
-        <item name="colorOnPrimary">@color/Carnelian</item>
+        <item name="colorPrimary">@color/BloodRed</item>
+        <item name="colorPrimaryVariant">@color/RubyRed</item>
+        <item name="colorOnPrimary">@color/RubyRed</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/LightGray</item>
         <item name="colorSecondaryVariant">@color/BlackShadows</item>
-        <item name="colorOnSecondary">@color/ImperialRed</item>
+        <item name="colorOnSecondary">@color/BloodRed</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
