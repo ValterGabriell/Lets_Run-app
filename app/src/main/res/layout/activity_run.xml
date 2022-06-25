@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_alternates_semibold"
-            android:text="Running App"
+            android:text="Let's Run"
             android:textColor="@color/EerieBlack"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="16dp"

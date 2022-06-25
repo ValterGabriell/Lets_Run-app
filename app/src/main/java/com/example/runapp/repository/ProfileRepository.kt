@@ -20,7 +20,7 @@ class ProfileRepository {
         context: Context,
         txtDist: MaterialTextView,
         txtKmh: MaterialTextView,
-        txtCal:MaterialTextView,
+        txtCal: MaterialTextView,
         txtTimeFinal: MaterialTextView,
         progressBarProfile: ProgressBar,
         layout: LinearLayout,

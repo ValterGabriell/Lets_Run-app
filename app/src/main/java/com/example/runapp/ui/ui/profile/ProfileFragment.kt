@@ -24,6 +24,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel by inject<ProfileViewModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +35,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
+        val acct = GoogleSignIn.getLastSignedInAccount(requireActivity())
         acct?.let {
             binding.txtName.text = it.displayName
             binding.txtEmail.text = it.email
@@ -80,8 +81,6 @@ class ProfileFragment : Fragment() {
                     userId
                 )
             }
-
         }
     }
-
 }

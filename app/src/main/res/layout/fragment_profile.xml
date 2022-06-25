@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/BlackShadows"
-    android:fillViewport="true"
-    tools:ignore="SpeakableTextPresentCheck">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,12 +32,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@id/imgCapa"
                     android:layout_alignBottom="@id/imgProfile"
-                    android:layout_marginRight="115dp"
                     android:layout_marginBottom="20dp"
+                    android:layout_toRightOf="@id/imgProfile"
                     android:fontFamily="@font/montserrat_alternates_semibold"
                     android:text="TextView"
                     android:textColor="@color/RichBlackFOGRA39"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtEmail"
@@ -57,11 +52,11 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_alignLeft="@id/imgCapa"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="125dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="150dp"
                     android:padding="8dp"
                     android:src="@drawable/profile" />
 
@@ -137,8 +132,8 @@
                         android:gravity="center_horizontal"
                         android:padding="8dp"
                         android:text="00:00:00"
-                        android:textColor="@color/EerieBlack"
-                        android:textSize="16sp" />
+                        android:textColor="@color/RubyRed"
+                        android:textSize="14sp" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txtDist"
@@ -175,13 +170,9 @@
                     android:text="Ver todas as corridas"
                     android:textColor="@color/EerieBlack" />
 
-                <com.github.mikephil.charting.charts.PieChart
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

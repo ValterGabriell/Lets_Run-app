@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RunApp</string>
+    <string name="app_name">Lets Run</string>
     <string name="title_activity_run">RunActivity</string>
     <string name="title_home">Atividade</string>
     <string name="title_dashboard">Progresso</string>

@@ -15,7 +15,7 @@
         android:layout_marginTop="96dp"
         android:fontFamily="@font/montserrat_alternates_semibold"
         android:gravity="center"
-        android:text="RUNNING APP"
+        android:text="Lets Run"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/Cultured"
         android:textSize="34sp" />

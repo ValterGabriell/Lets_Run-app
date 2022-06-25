@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.runapp.model.RunModelFinal
 import com.example.runapp.repository.ListRunRepository
 import com.facebook.shimmer.ShimmerFrameLayout
+import com.google.android.material.chip.ChipGroup
 
 class ListRunViewModel(private val repository: ListRunRepository) :
     ViewModel() {
@@ -20,8 +21,13 @@ class ListRunViewModel(private val repository: ListRunRepository) :
         relativeLayoutEmpty: RelativeLayout,
         shimmerLayout: ShimmerFrameLayout
     ) {
-        repository.getAllList(userId, listRuns, recyclerOK,relativeLayoutErro,relativeLayoutEmpty, shimmerLayout)
+        repository.getAllList(
+            userId,
+            listRuns,
+            recyclerOK,
+            relativeLayoutErro,
+            relativeLayoutEmpty,
+            shimmerLayout
+        )
     }
-
-
 }

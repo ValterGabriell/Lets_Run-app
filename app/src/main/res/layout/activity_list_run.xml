@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.ListRunActivity">
 
-<com.facebook.shimmer.ShimmerFrameLayout
+    <com.facebook.shimmer.ShimmerFrameLayout
     android:id="@+id/shimmer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

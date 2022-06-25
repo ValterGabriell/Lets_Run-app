@@ -66,13 +66,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation "com.google.android.gms:play-services-gcm:17.0.0"
-
-    //mpchart para graficos
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     // Easy Permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
     //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+    //glide para gif
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 
     //koin
     implementation "io.insert-koin:koin-android:3.1.3"

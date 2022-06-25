@@ -23,11 +23,14 @@ import com.example.runapp.service.TrackingService
 import com.example.runapp.ui.ConfiguracoesActivity
 import com.example.runapp.ui.animUI.Anim
 import com.example.runapp.ui.viewmodel.HomeViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.tasks.OnCompleteListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

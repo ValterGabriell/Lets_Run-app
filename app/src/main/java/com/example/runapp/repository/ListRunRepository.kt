@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.runapp.model.RunModelFinal
 import com.example.runapp.network.RetrofitInstance
 import com.facebook.shimmer.ShimmerFrameLayout
+import com.google.android.material.chip.ChipGroup
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ListRunRepository {
+
 
     fun getAllList(
         userId: String,
@@ -55,5 +57,4 @@ class ListRunRepository {
                 }
             })
     }
-
 }

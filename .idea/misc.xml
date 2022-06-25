@@ -8,10 +8,19 @@
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/background_btn_start_clicked.xml" value="0.1585" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/btn_start_background.xml" value="0.113" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/btn_start_click_final.xml" value="0.1585" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2075" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_av_timer_24.xml" value="0.2075" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1635" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_directions_run_24.xml" value="0.2075" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_edit_road_24.xml" value="0.1715" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_graphic_eq_24.xml" value="0.1715" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_local_florist_24.xml" value="0.1715" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.1715" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.1715" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_24.xml" value="0.1385" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_alt_24.xml" value="0.1385" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/ic_baseline_sentiment_very_dissatisfied_24.xml" value="0.1385" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/drawable/splash_bg.xml" value="0.2075" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_configuracoes.xml" value="0.2" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_list_run.xml" value="0.2" />
@@ -19,11 +28,12 @@
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_run.xml" value="0.25" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_setting.xml" value="0.2" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_settings.xml" value="0.2" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_finish_run.xml" value="0.25" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_profile.xml" value="0.14" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_profile2.xml" value="0.25" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/fragment_show_last_data.xml" value="0.25" />
         <entry key="..\:/Users/vgabr/AndroidStudioProjects/RunApp/app/src/main/res/layout/layout_list_run.xml" value="0.25" />

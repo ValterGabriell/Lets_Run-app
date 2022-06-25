@@ -56,10 +56,11 @@ class ListRunActivity : AppCompatActivity() {
         }
     }
 
-    private fun configToolbar(){
+    private fun configToolbar() {
         supportActionBar?.apply {
             title = "Lista de corridas"
             setDisplayHomeAsUpEnabled(true)
         }
     }
+
 }
