@@ -6,11 +6,8 @@ object Constantes {
 
 
     const val REQUEST_CODE_LOCATION_PERMISSIONS = 0
-    const val APL_RCG = 45
-
     const val TIMER_UPDATE = 50L
     const val RC_SIGN_IN = 0
-
     const val LOCATION_UPDATE_INTERVAL = 5000L
     const val FASTEST_LOCATION_INTERVAL = 2000L
 
