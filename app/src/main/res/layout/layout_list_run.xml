@@ -30,15 +30,6 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/txtCyti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignWithParentIfMissing="false"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/montserrat_alternates_semibold"
-                android:text="TextView" />
-
-            <TextView
                 android:id="@+id/txtDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

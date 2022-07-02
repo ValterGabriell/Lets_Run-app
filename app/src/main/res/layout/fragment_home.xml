@@ -195,6 +195,7 @@
             android:textColor="@color/RichBlackFOGRA39"
             android:visibility="gone"
             app:backgroundTint="@color/White"
+            app:cornerRadius="45dp"
             app:icon="@drawable/ic_baseline_not_started_24"
             app:iconGravity="textEnd"
             app:iconPadding="-1dp"

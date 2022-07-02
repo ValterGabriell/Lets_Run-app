@@ -5,7 +5,6 @@
     <string name="title_dashboard">Progresso</string>
     <string name="title_notifications">Perfil</string>
     <string name="content_description">content_description</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDaYYQDexN0mG-S7rwkeviXfnGjWLv-zEQ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">SettingsActivity</string>

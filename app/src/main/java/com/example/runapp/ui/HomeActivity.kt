@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.runapp.R
 import com.example.runapp.databinding.ActivityHomeBinding
+import com.example.runapp.other.Constantes.RC_SIGN_IN
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,7 +18,7 @@ import com.google.android.gms.tasks.Task
 class HomeActivity : AppCompatActivity() {
 
 
-    private val RC_SIGN_IN = 0
+
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var binding: ActivityHomeBinding
 

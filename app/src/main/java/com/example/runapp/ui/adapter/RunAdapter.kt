@@ -35,13 +35,12 @@ class RunAdapter(private val lista: List<RunModelFinal>) :
     private fun setViews(itemView: View, runModelFinal: RunModelFinal) {
         itemView.findViewById<TextView>(R.id.txtNote).text = runModelFinal.note
         itemView.findViewById<TextView>(R.id.txtDistancia).text =
-            AppUtilities.formatTo2DecimalHomes(runModelFinal.totalDistance)
+            "${AppUtilities.formatTo2DecimalHomes(runModelFinal.totalDistance)} km"
         itemView.findViewById<TextView>(R.id.txtAvg).text =
-            AppUtilities.formatTo2DecimalHomes(runModelFinal.avergedSpeed)
+            "${AppUtilities.formatTo2DecimalHomes(runModelFinal.avergedSpeed)} kmh"
         itemView.findViewById<TextView>(R.id.txtDuration).text = runModelFinal.timRunInSeconds
         itemView.findViewById<TextView>(R.id.txtFel).text = runModelFinal.runFeeling
         itemView.findViewById<TextView>(R.id.txtDay).text = runModelFinal.turno
-        itemView.findViewById<TextView>(R.id.txtCyti).text = runModelFinal.local
         itemView.findViewById<TextView>(R.id.txtDaterv).text = runModelFinal.dateRun
         val img = itemView.findViewById<ImageView>(R.id.imgRunRecycler)
         if (runModelFinal.local == "Cidade") {

@@ -9,6 +9,7 @@ object Constantes {
 
 
     const val TIMER_UPDATE = 50L
+    const val RC_SIGN_IN = 0
 
     const val LOCATION_UPDATE_INTERVAL = 5000L
     const val FASTEST_LOCATION_INTERVAL = 2000L
