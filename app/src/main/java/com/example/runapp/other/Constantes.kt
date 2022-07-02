@@ -19,7 +19,7 @@ object Constantes {
     const val ACTION_PAUSE_SERVICE = "ACTION_PAUSE_SERVICE"
     const val ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE"
 
-    const val URL_BASE = "https://app-corrida-vg.herokuapp.com/runapp/"
+    const val URL_BASE = "https://runappvg.herokuapp.com/runapp/"
 
 
     const val POLYLINE_COLOR = Color.RED
