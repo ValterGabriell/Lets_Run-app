@@ -15,6 +15,8 @@ object Constantes {
     const val ACTION_START_OR_RESUME_SERVICE = "ACTION_START_OR_RESUME_SERVICE"
     const val ACTION_PAUSE_SERVICE = "ACTION_PAUSE_SERVICE"
     const val ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE"
+    const val CHANNEL_ID = "CHANNEL_ID"
+    const val NOTIFICATION_ID = 2
 
     const val URL_BASE = "https://runappvg.herokuapp.com/runapp/"
 

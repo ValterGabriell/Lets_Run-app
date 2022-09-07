@@ -1,14 +1,20 @@
 package com.example.runapp.ui.ui.home
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.createDataStore
@@ -66,6 +72,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mapView.onCreate(savedInstanceState)
+        createNotificationChannel()
 
 
         dataStore = requireContext().createDataStore(name = "settings")
@@ -212,9 +219,52 @@ class HomeFragment : Fragment() {
             currentTimeMillis = it
             val formattedInSeconds =
                 AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
+            createNotification(formattedInSeconds)
             binding.txtTimeInSeconds.text = formattedInSeconds
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val notificationManager: NotificationManager =
+            requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancelAll()
+    }
+
+    private fun createNotification(timeRun: String) {
+        val builder = NotificationCompat.Builder(
+            requireContext(),
+            Constantes.CHANNEL_ID
+        ).setSmallIcon(R.drawable.ic_baseline_av_timer_24)
+            .setContentTitle(timeRun)
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(Constantes.NOTIFICATION_ID, builder.build())
+        }
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Notification"
+            val descriptionText = "Description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(Constantes.CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+        }
+    }
+
 
     private fun moveCameraToUser() {
         if (pathPoints.isNotEmpty() && pathPoints.last().isNotEmpty()) {

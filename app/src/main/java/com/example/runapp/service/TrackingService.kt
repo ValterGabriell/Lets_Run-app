@@ -2,20 +2,29 @@ package com.example.runapp.service
 
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.location.Location
+import android.os.Build
 import android.os.Looper
+import android.util.Log
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
+import com.example.runapp.R
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.other.Constantes
+import com.example.runapp.other.Constantes.CHANNEL_ID
+import com.example.runapp.other.Constantes.NOTIFICATION_ID
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -114,9 +123,16 @@ class TrackingService : LifecycleService() {
                 }
                 delay(Constantes.TIMER_UPDATE)
             }
+            }
+
+
             timeRun += lapTime
         }
-    }
+
+
+
+
+
 
     private fun addEmptyPolyline() =
         pathPoints.value?.apply {

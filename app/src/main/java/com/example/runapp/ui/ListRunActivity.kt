@@ -46,7 +46,7 @@ class ListRunActivity : AppCompatActivity() {
             )
             CoroutineScope(Dispatchers.Main).launch {
                 viewModel.listRuns.observe(this@ListRunActivity) {
-                    lista = it as ArrayList<RunModelFinal>
+                    lista = it.reversed() as ArrayList<RunModelFinal>
                     adapter = RunAdapter(lista)
                     binding.recyclerView.adapter = adapter
                     binding.recyclerView.layoutManager = LinearLayoutManager(this@ListRunActivity)
