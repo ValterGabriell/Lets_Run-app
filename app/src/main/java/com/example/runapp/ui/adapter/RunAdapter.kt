@@ -11,7 +11,7 @@ import com.example.runapp.model.RunModelFinal
 import com.example.runapp.other.AppUtilities
 import com.squareup.picasso.Picasso
 
-class RunAdapter(private val lista: List<RunModelFinal>) :
+class RunAdapter(private val lista: ArrayList<RunModelFinal>) :
     RecyclerView.Adapter<RunAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

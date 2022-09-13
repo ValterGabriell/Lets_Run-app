@@ -62,7 +62,7 @@ class FinishRunRepository {
                     progressBar.visibility = View.GONE
                     Toast.makeText(context, "Corrida salva no banco de dados", Toast.LENGTH_LONG)
                         .show()
-                    Log.d("TAG", runModel.toString())
+
                 }
 
                 override fun onFailure(call: Call<RunModelFinal>, t: Throwable) {
@@ -71,10 +71,6 @@ class FinishRunRepository {
                         "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}",
                         Toast.LENGTH_LONG
                     ).show()
-                    Log.d(
-                        "tag",
-                        "Falha ao salvar no database ${t.cause} and ${t.message} and ${t.stackTrace}"
-                    )
                 }
             })
     }

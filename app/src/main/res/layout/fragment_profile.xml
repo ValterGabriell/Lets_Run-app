@@ -167,8 +167,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_alternates_semibold"
                     android:padding="8dp"
-                    android:text="Ver todas as corridas"
                     android:textColor="@color/EerieBlack" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRuns"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 

@@ -11,13 +11,8 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_id_home_to_finishRunFragment"
-            app:destination="@id/finishRunFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-
+            android:id="@+id/action_id_home_to_finishRunFragment2"
+            app:destination="@id/finishRunFragment" />
     </fragment>
 
     <fragment

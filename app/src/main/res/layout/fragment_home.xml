@@ -185,6 +185,24 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:textAlignment="inherit"
+            android:textColor="@color/RichBlackFOGRA39"
+            app:backgroundTint="@color/White"
+            app:cornerRadius="45dp"
+            app:icon="@drawable/ic_baseline_check_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <Button
             android:id="@+id/btnContinue"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -202,25 +220,5 @@
             app:iconTint="@color/EerieBlack"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.example.swipebutton_library.SwipeButton
-            android:id="@+id/btn_finish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:button_background_padding="12dp"
-            app:button_height="40dp"
-            app:button_width="40dp"
-            android:layout_marginTop="5dp"
-            app:has_active_status="false"
-            app:has_finish_animation="true"
-            app:inner_text="Arraste para finalizar"
-            app:inner_text_color="@color/black"
-            app:inner_text_gravity="end"
-            app:inner_text_padding="8dp"
-            app:inner_text_size="12sp"
-            app:button_background_drawable="@drawable/ic_baseline_stop_24"
-            app:outer_background_height="40dp"
-            app:outer_background_tint="@color/white"
-            app:trail_background_tint="@color/black"
-            app:trail_enabled="true" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

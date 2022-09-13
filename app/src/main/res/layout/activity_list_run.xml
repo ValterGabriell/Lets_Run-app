@@ -8,17 +8,35 @@
     android:orientation="vertical"
     tools:context=".ui.ListRunActivity">
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingVertical="12dp"
+        >
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+
+    </HorizontalScrollView>
+
     <com.facebook.shimmer.ShimmerFrameLayout
-    android:id="@+id/shimmer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical">
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <include layout="@layout/layout_list_run_shimmer"/>
+        <include layout="@layout/layout_list_run_shimmer" />
 
 
-</com.facebook.shimmer.ShimmerFrameLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <RelativeLayout
         android:id="@+id/relativeEmpty"
@@ -96,6 +114,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:listitem="@layout/layout_list_run" />
 </LinearLayout>

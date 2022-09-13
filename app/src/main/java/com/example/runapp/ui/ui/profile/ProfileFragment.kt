@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.runapp.databinding.FragmentProfileBinding
+import com.example.runapp.model.RunModelFinal
 import com.example.runapp.ui.ListRunActivity
+import com.example.runapp.ui.adapter.RunAdapter
 import com.example.runapp.ui.viewmodel.ProfileViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.textview.MaterialTextView
@@ -23,6 +26,9 @@ import org.koin.android.ext.android.inject
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel by inject<ProfileViewModel>()
+    private var lista = ArrayList<RunModelFinal>()
+    private lateinit var adapter: RunAdapter
+
 
 
     override fun onCreateView(
@@ -39,7 +45,7 @@ class ProfileFragment : Fragment() {
         acct?.let {
             binding.txtName.text = it.displayName
             binding.txtEmail.text = it.email
-            Picasso.get().load(it.photoUrl).into(binding.imgProfile)
+            Picasso.get().load(it.photoUrl).priority(Picasso.Priority.HIGH).into(binding.imgProfile)
         }
         getLastRun(
             binding.txtDist,
@@ -53,6 +59,23 @@ class ProfileFragment : Fragment() {
         )
         binding.txtSeeAllRun.setOnClickListener {
             startActivity(Intent(requireActivity(), ListRunActivity::class.java))
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.getAllRuns(
+                acct.id!!,
+                binding.rvRuns,
+                binding.txtSeeAllRun
+            )
+        }
+
+        CoroutineScope(Dispatchers.Main).launch{
+            viewModel.listRuns.observe(requireActivity()){
+                lista = it as ArrayList<RunModelFinal>
+                adapter = RunAdapter(lista)
+                binding.rvRuns.adapter = adapter
+                binding.rvRuns.layoutManager = LinearLayoutManager(requireActivity())
+            }
         }
 
     }

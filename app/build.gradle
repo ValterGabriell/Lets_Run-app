@@ -106,6 +106,9 @@ dependencies {
     //shimmer effect
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
+    //thiago aguiar rv
+    implementation 'com.github.tiago-aguiar.at-way:ui:0.1.1'
+
 
 
 

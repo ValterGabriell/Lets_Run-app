@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
         }
 
 
-        binding.btnFinish.setOnActiveListener {
+        binding.btnFinish.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 zoomToSeeWholeTrack()
                 changeThisFragmentToFinishRunFragment()
@@ -314,11 +314,15 @@ class HomeFragment : Fragment() {
         val kmh = speedOfRun
 
 
-        val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment(
+        val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment2(
             timerInsSeconds = timeInSecond,
             distanceTotal = distanceTotal.toFloat(),
             kmh = kmh.toFloat()
         )
+
+
+
+
         findNavController().navigate(action)
     }
 

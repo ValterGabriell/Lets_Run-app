@@ -3,18 +3,60 @@ package com.example.runapp.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
+import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.RecyclerView
 import com.example.runapp.model.RunModelFinal
 import com.example.runapp.network.RetrofitInstance
 import com.example.runapp.other.AppUtilities
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.textview.MaterialTextView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ProfileRepository {
+
+
+    fun getAllList(
+        userId: String,
+        listRuns: MutableLiveData<List<RunModelFinal>>,
+        recyclerView: RecyclerView,
+        txtModifier : TextView
+    ) {
+        RetrofitInstance.getRetrofit().getAllRun(userId)
+            .enqueue(object : Callback<List<RunModelFinal>> {
+                override fun onResponse(
+                    call: Call<List<RunModelFinal>>,
+                    response: Response<List<RunModelFinal>>
+                ) {
+                    val lista = response.body()
+                    if (lista!!.isNotEmpty()) {
+                        recyclerView.visibility = View.VISIBLE
+                        listRuns.postValue(lista)
+                        txtModifier.apply {
+                            text = "Ver todas as corridas"
+                            isClickable = true
+                        }
+
+                    } else {
+                       txtModifier.apply {
+                           text = "Você não possui nenhuma corrida salva!"
+                           isClickable = false
+                       }
+                    }
+
+
+                }
+
+                override fun onFailure(call: Call<List<RunModelFinal>>, t: Throwable) {
+                    txtModifier.apply {
+                        text = "Falha ao fazer requisição, tente novamente!"
+                        isClickable = false
+                    }
+                }
+            })
+    }
 
     fun getLastRun(
         context: Context,
