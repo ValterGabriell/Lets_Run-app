@@ -27,26 +27,7 @@
             android:layout_below="@id/txtDuration"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="4dp">
-
-            <TextView
-                android:id="@+id/txtDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/montserrat_alternates_semibold"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/txtFel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/montserrat_alternates_semibold"
-                android:text="TextView" />
-        </LinearLayout>
+            android:padding="4dp"/>
 
         <TextView
             android:id="@+id/txtNote"
@@ -54,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ll"
             android:gravity="center_horizontal"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDaterv"

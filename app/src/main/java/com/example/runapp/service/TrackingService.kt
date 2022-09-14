@@ -123,15 +123,15 @@ class TrackingService : LifecycleService() {
                 }
                 delay(Constantes.TIMER_UPDATE)
             }
-            }
+        }
+        timeRun += lapTime
 
-
-            timeRun += lapTime
+        timeRunInMillis.observe(this) {
+            var timeFormatted = AppUtilities.getTimerInMillisAndChangeToSeconds(it, false)
+            createNotification(timeFormatted, this)
         }
 
-
-
-
+    }
 
 
     private fun addEmptyPolyline() =
@@ -174,6 +174,22 @@ class TrackingService : LifecycleService() {
         }
     }
 
+    private fun createNotification(timeRun: String, context: Context) {
+        val builder = NotificationCompat.Builder(
+            context,
+            Constantes.CHANNEL_ID
+        ).setSmallIcon(R.drawable.ic_baseline_av_timer_24)
+            .setContentTitle(timeRun)
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
+        with(NotificationManagerCompat.from(context)) {
+            notify(Constantes.NOTIFICATION_ID, builder.build())
+        }
+    }
+
     private fun addPathPoints(locations: Location?) {
         locations?.let {
             val position = LatLng(locations.latitude, locations.longitude)
@@ -181,7 +197,7 @@ class TrackingService : LifecycleService() {
                 last().add(position)
                 pathPoints.postValue(this)
                 distanceTotal.postValue(
-                    calculateDiferenceBetweenStartLocationAndCurrentLocation2(
+                    calculateDiferenceBetweenStartLocationAndCurrentLocation(
                         this
                     )
                 )
@@ -191,7 +207,7 @@ class TrackingService : LifecycleService() {
         }
     }
 
-    private fun calculateDiferenceBetweenStartLocationAndCurrentLocation2(pathPoints: Polylines): Double {
+    private fun calculateDiferenceBetweenStartLocationAndCurrentLocation(pathPoints: Polylines): Double {
         var distanceInMeters = 0.00
         for (polylines in pathPoints) {
             distanceInMeters += AppUtilities.calculatePolylineLength(polylines)
@@ -209,8 +225,20 @@ class TrackingService : LifecycleService() {
             val velocidade = (distanceInMeters / it)
             speedInMetersPerSecond.postValue((velocidade * 3.6).toInt())
         }
+    }
 
+    override fun onLowMemory() {
+        super.onLowMemory()
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancelAll()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancelAll()
     }
 
 

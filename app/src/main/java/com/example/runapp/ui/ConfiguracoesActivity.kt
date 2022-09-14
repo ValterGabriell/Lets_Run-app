@@ -38,10 +38,10 @@ class ConfiguracoesActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             if (read("MapKey") == true) {
                 binding.switchMap.setChecked(true);
-                Picasso.get().load(R.drawable.mapdark).into(binding.imageButton)
+                Picasso.get().load(R.drawable.maps_dark).into(binding.imageButton)
             } else {
                 binding.switchMap.setChecked(false);
-                Picasso.get().load(R.drawable.mapanormal).into(binding.imageButton)
+                Picasso.get().load(R.drawable.map_litgh).into(binding.imageButton)
             }
         }
     }
@@ -63,7 +63,7 @@ class ConfiguracoesActivity : AppCompatActivity() {
     private fun changeMap() {
         binding.switchMap.setOnCheckedChangeListener { _, bool ->
             if (bool) {
-                Picasso.get().load(R.drawable.mapdark).into(binding.imageButton)
+                Picasso.get().load(R.drawable.maps_dark).into(binding.imageButton)
                 lifecycleScope.launch {
                     save(
                         key = "MapKey",
@@ -72,7 +72,7 @@ class ConfiguracoesActivity : AppCompatActivity() {
                 }
 
             } else {
-                Picasso.get().load(R.drawable.mapanormal).into(binding.imageButton)
+                Picasso.get().load(R.drawable.map_litgh).into(binding.imageButton)
                 lifecycleScope.launch {
                     save(
                         key = "MapKey",

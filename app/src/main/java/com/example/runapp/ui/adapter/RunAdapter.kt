@@ -1,5 +1,6 @@
 package com.example.runapp.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,18 +40,16 @@ class RunAdapter(private val lista: ArrayList<RunModelFinal>) :
         itemView.findViewById<TextView>(R.id.txtAvg).text =
             "${AppUtilities.formatTo2DecimalHomes(runModelFinal.avergedSpeed)} kmh"
         itemView.findViewById<TextView>(R.id.txtDuration).text = runModelFinal.timRunInSeconds
-        itemView.findViewById<TextView>(R.id.txtFel).text = runModelFinal.runFeeling
-        itemView.findViewById<TextView>(R.id.txtDay).text = runModelFinal.turno
         itemView.findViewById<TextView>(R.id.txtDaterv).text = runModelFinal.dateRun
 
         val img = itemView.findViewById<ImageView>(R.id.imgRunRecycler)
-
 
         if (runModelFinal.local == "Cidade") {
             Picasso.get().load(R.drawable.img_cidade).into(img)
         } else {
             Picasso.get().load(R.drawable.img_campo).into(img)
         }
+
 
     }
 

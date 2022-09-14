@@ -58,6 +58,7 @@ class RunActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     }
 
+
     private fun requestPermissions() {
         if (AppUtilities.hasPermissionsAccepts(this@RunActivity)) {
             return

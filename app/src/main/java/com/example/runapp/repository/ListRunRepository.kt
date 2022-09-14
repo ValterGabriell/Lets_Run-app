@@ -36,7 +36,7 @@ class ListRunRepository {
                             visibility = View.GONE
                             this.stopShimmerAnimation()
                         }
-                        listRuns.postValue(lista)
+                        listRuns.postValue(lista.reversed())
                     } else {
                         shimmerLayout.apply {
                             visibility = View.GONE

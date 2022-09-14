@@ -33,7 +33,7 @@ class ProfileRepository {
                     val lista = response.body()
                     if (lista!!.isNotEmpty()) {
                         recyclerView.visibility = View.VISIBLE
-                        listRuns.postValue(lista)
+                        listRuns.postValue(lista.reversed())
                         txtModifier.apply {
                             text = "Ver todas as corridas"
                             isClickable = true

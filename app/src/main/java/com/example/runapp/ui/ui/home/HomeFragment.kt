@@ -156,9 +156,11 @@ class HomeFragment : Fragment() {
                 Anim.fadeInOrOut(binding.btnFinish, 0f, 1f, 500, View.VISIBLE)
             }
 
-
         }
     }
+
+
+
 
     private fun zoomToSeeWholeTrack() {
         map?.moveCamera(
@@ -219,33 +221,11 @@ class HomeFragment : Fragment() {
             currentTimeMillis = it
             val formattedInSeconds =
                 AppUtilities.getTimerInMillisAndChangeToSeconds(currentTimeMillis, true)
-            createNotification(formattedInSeconds)
             binding.txtTimeInSeconds.text = formattedInSeconds
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        val notificationManager: NotificationManager =
-            requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.cancelAll()
-    }
 
-    private fun createNotification(timeRun: String) {
-        val builder = NotificationCompat.Builder(
-            requireContext(),
-            Constantes.CHANNEL_ID
-        ).setSmallIcon(R.drawable.ic_baseline_av_timer_24)
-            .setContentTitle(timeRun)
-            .setOngoing(true)
-            .setOnlyAlertOnce(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-
-        with(NotificationManagerCompat.from(requireContext())) {
-            notify(Constantes.NOTIFICATION_ID, builder.build())
-        }
-    }
 
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
@@ -341,6 +321,7 @@ class HomeFragment : Fragment() {
         }
 
 
+
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
@@ -354,11 +335,13 @@ class HomeFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         binding.mapView.onStop()
+
     }
 
     override fun onPause() {
         super.onPause()
         binding.mapView.onPause()
+
     }
 
     override fun onLowMemory() {
