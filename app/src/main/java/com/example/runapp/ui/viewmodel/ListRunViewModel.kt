@@ -36,4 +36,8 @@ class ListRunViewModel(private val repository: ListRunRepository) :
     ) {
         repository.deleteRun(runId)
     }
+
+    suspend fun deleteAllRuns() {
+        repository.deleteAllRuns()
+    }
 }

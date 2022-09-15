@@ -32,12 +32,12 @@ class RunAdapter(private val lista: ArrayList<RunModelFinal>) :
         holder.bind(lista[position])
         holder.itemView.setOnLongClickListener {
             val btnDelete = it.findViewById<Button>(R.id.btnDelete)
-            setOnLongClick!!.invoke(lista[position].runId!!, btnDelete)
+            setOnLongClick!!.invoke(lista[position].runId!!, btnDelete, position)
             return@setOnLongClickListener true
         }
     }
 
-    var setOnLongClick : ((Int, Button) -> Unit)? = null
+    var setOnLongClick : ((Int, Button, Int) -> Unit)? = null
 
     override fun getItemCount(): Int = lista.size
 

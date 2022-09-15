@@ -15,8 +15,6 @@ import com.example.runapp.R
 import com.example.runapp.databinding.ActivityRunBinding
 import com.example.runapp.other.AppUtilities
 import com.example.runapp.other.Constantes
-import com.example.runapp.ui.ui.home.HomeFragment
-import com.squareup.picasso.Picasso
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -101,6 +99,10 @@ class RunActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onBackPressed() {
+
     }
 
 

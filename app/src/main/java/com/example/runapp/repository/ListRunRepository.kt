@@ -74,4 +74,16 @@ class ListRunRepository {
             }
         })
     }
+
+    fun deleteAllRuns() {
+        RetrofitInstance.getRetrofit().deleteAll().enqueue(object : Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+            }
+        })
+    }
 }

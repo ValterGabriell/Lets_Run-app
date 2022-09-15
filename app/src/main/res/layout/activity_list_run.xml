@@ -8,23 +8,6 @@
     android:orientation="vertical"
     tools:context=".ui.ListRunActivity">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp"
-        android:scrollbars="none"
-        android:clipToPadding="false"
-        android:paddingVertical="12dp"
-        >
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
-
-    </HorizontalScrollView>
-
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_layout"
         android:layout_width="match_parent"

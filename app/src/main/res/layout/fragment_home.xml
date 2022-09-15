@@ -159,7 +159,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:padding="4dp"
@@ -185,24 +185,6 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/btnFinish"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:textAlignment="inherit"
-            android:textColor="@color/RichBlackFOGRA39"
-            app:backgroundTint="@color/White"
-            app:cornerRadius="45dp"
-            app:icon="@drawable/ic_baseline_check_24"
-            app:iconGravity="textEnd"
-            app:iconPadding="-1dp"
-            app:iconTint="@color/EerieBlack"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <Button
             android:id="@+id/btnContinue"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -219,6 +201,24 @@
             app:iconPadding="-1dp"
             app:iconTint="@color/EerieBlack"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:textAlignment="inherit"
+            android:textColor="@color/RichBlackFOGRA39"
+            app:backgroundTint="@color/White"
+            app:cornerRadius="45dp"
+            app:icon="@drawable/ic_baseline_check_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="-1dp"
+            app:iconTint="@color/EerieBlack"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

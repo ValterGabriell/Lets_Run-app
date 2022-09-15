@@ -94,4 +94,6 @@ class ConfiguracoesActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
     }
+
+
 }
