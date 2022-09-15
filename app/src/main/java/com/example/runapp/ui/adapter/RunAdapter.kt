@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +30,14 @@ class RunAdapter(private val lista: ArrayList<RunModelFinal>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(lista[position])
+        holder.itemView.setOnLongClickListener {
+            val btnDelete = it.findViewById<Button>(R.id.btnDelete)
+            setOnLongClick!!.invoke(lista[position].runId!!, btnDelete)
+            return@setOnLongClickListener true
+        }
     }
+
+    var setOnLongClick : ((Int, Button) -> Unit)? = null
 
     override fun getItemCount(): Int = lista.size
 

@@ -1,5 +1,6 @@
 package com.example.runapp.repository
 
+import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
 import androidx.lifecycle.MutableLiveData
@@ -36,7 +37,7 @@ class ListRunRepository {
                             visibility = View.GONE
                             this.stopShimmerAnimation()
                         }
-                        listRuns.postValue(lista.reversed())
+                        listRuns.postValue(lista)
                     } else {
                         shimmerLayout.apply {
                             visibility = View.GONE
@@ -56,5 +57,21 @@ class ListRunRepository {
                     relativeLayoutErro.visibility = View.VISIBLE
                 }
             })
+    }
+
+
+
+    fun deleteRun(
+        runId:Int
+    ) {
+        RetrofitInstance.getRetrofit().deleteById(runId).enqueue(object : Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.i("TAG", response.message())
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+            }
+        })
     }
 }

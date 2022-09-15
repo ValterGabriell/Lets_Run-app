@@ -30,4 +30,10 @@ class ListRunViewModel(private val repository: ListRunRepository) :
             shimmerLayout
         )
     }
+
+    suspend fun deleteRun(
+       runId:Int
+    ) {
+        repository.deleteRun(runId)
+    }
 }

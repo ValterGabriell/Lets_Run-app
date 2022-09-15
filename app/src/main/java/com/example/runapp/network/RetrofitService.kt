@@ -22,8 +22,8 @@ interface RetrofitService {
     fun getLastRun(@Path("userId") userId: String): Call<RunModelFinal>
 
     @DELETE("delete/all")
-    fun deleteAll()
+    fun deleteAll() : Call<String>
 
     @DELETE("delete/{id}")
-    fun deleteById(@Path("id") id: Int)
+    fun deleteById(@Path("id") id: Int) : Call<String>
 }

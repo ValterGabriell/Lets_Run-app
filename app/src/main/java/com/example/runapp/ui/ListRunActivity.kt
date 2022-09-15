@@ -1,8 +1,10 @@
 package com.example.runapp.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.runapp.R
 import com.example.runapp.databinding.ActivityListRunBinding
@@ -65,6 +67,28 @@ class ListRunActivity : AppCompatActivity() {
                     adapter = RunAdapter(lista)
                     binding.recyclerView.adapter = adapter
                     binding.recyclerView.layoutManager = LinearLayoutManager(this@ListRunActivity)
+
+                    adapter.setOnLongClick = { runId, btnDelete ->
+                        if (btnDelete.isVisible) {
+                            btnDelete.apply {
+                                visibility = View.GONE
+                                isClickable = false
+                            }
+
+                        } else {
+                            btnDelete.apply {
+                                isClickable = true
+                                visibility = View.VISIBLE
+                                this.setOnClickListener {
+                                    CoroutineScope(Dispatchers.IO).launch {
+                                        viewModel.deleteRun(runId)
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
                 }
             }
 
