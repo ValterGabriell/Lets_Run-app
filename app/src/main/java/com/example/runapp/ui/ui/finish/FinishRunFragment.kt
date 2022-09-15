@@ -75,6 +75,8 @@ class FinishRunFragment : Fragment() {
         binding.floatingActionButton.visibility = View.GONE
         binding.progressBarSave.visibility = View.VISIBLE
 
+
+
         val runModel = RunModelFinal(
             0,
             acct?.id!!,

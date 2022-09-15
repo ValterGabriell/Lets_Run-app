@@ -293,7 +293,6 @@ class HomeFragment : Fragment() {
         val distanceTotal = distanceKm
         val kmh = speedOfRun
 
-
         val action = HomeFragmentDirections.actionIdHomeToFinishRunFragment2(
             timerInsSeconds = timeInSecond,
             distanceTotal = distanceTotal.toFloat(),

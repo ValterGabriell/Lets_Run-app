@@ -2,7 +2,6 @@ package com.example.runapp.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -69,18 +68,8 @@ class ListRunActivity : AppCompatActivity() {
     }
 
     private fun removeItemFromList() {
-        adapter.setOnLongClick = { runId, btnDelete, position ->
-            if (btnDelete.isVisible) {
-                btnDelete.apply {
-                    visibility = View.GONE
-                    isClickable = false
-                }
-
-            } else {
-                btnDelete.apply {
-                    isClickable = true
-                    visibility = View.VISIBLE
-                    this.setOnClickListener {
+        adapter.setOnClick = { runId, btnDelete, position ->
+                btnDelete.setOnClickListener {
                         CoroutineScope(Dispatchers.IO).launch {
                             viewModel.deleteRun(runId)
                             CoroutineScope(Dispatchers.Main).launch {
@@ -90,10 +79,6 @@ class ListRunActivity : AppCompatActivity() {
                         }
                     }
                 }
-
-            }
-
-        }
     }
 
     private fun configToolbar() {

@@ -70,6 +70,14 @@
             android:textColor="@color/RichBlackFOGRA39"
             android:textSize="16sp" />
 
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNote"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_baseline_restore_from_trash_24" />
+
         <TextView
             android:id="@+id/txtDuration"
             android:layout_width="wrap_content"
@@ -82,13 +90,6 @@
             android:text="TextView"
             android:textColor="@color/BloodRed" />
 
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtDaterv"
-            android:text="Button"
-            android:visibility="gone" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
